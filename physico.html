@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Analyse Physico-Chimique</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <img src="sonatrach.png" class="logo-left" alt="Sonatrach">
+        <h1>Analyse Physico-Chimique</h1>
+        <img src="application.png" class="logo-right" alt="App">
+    </header>
+    <div class="container">
+        <!-- Identification du transformateur -->
+        <h2>🔎 Identification du Transformateur</h2>
+        <form id="analyseForm" class="form">
+            <label for="nomTransfo">Nom du Transformateur :</label>
+            <input type="text" id="nomTransfo" name="nomTransfo" required>
+
+            <label for="typeTransfo">Type de Transformateur :</label>
+            <select id="typeTransfo" name="typeTransfo" required>
+                <option value="moins_72">Tension < 72,5 kV</option>
+                <option value="72_170">Tension 72,5 kV - 170 kV</option>
+                <option value="170_400">Tension 170 kV - 400 kV</option>
+                <option value="plus_400">Tension > 400 kV</option>
+            </select>
+
+            <!-- DATES -->
+            <h2>📅 Dates</h2>
+            <label for="dateEchantillon">Date d'Échantillonnage :</label>
+            <input type="date" id="dateEchantillon" name="dateEchantillon" required>
+
+            <label for="dateAnalyse">Date d'Analyse :</label>
+            <input type="date" id="dateAnalyse" name="dateAnalyse" required>
+
+            <!-- Analyse physico-chimique -->
+            <h3>🧪 Paramètres Physico-Chimiques</h3>
+            <label for="couleur">Couleur :</label>
+            <input type="text" id="couleur" required>
+
+            <label for="aspect">Aspect :</label>
+            <select id="aspect" required>
+                <option value="Limpide">Limpide</option>
+                <option value="Trouble">Trouble</option>
+            </select>
+
+            <label for="claquage">Tension de Claquage (kV) :</label>
+            <input type="number" id="claquage" required>
+
+            <label for="dissipation">Facteur de Dissipation :</label>
+            <input type="number" id="dissipation" step="0.01" required>
+
+            <label for="acidite">Indice d’Acidité (mg KOH/g) :</label>
+            <input type="number" id="acidite" step="0.01" required>
+
+            <label for="eau">Teneur en Eau (ppm) :</label>
+            <input type="number" id="eau" required>
+
+            <label for="viscosite">Viscosité à 40°C (mm²/s) :</label>
+            <input type="number" id="viscosite" required>
+
+            <button type="button" onclick="analyserPhysico()">🔬 Analyser</button>
+        </form>
+
+        <div id="analyseResultats" class="resultats">
+            <h3>📊 Résultats</h3>
+            <div id="resultatsPhysico"></div>
+            <div id="conclusionPhysico"></div>
+        </div>
+
+        <button class="button-secondary" onclick="window.print()">🖨️ Imprimer</button>
+        <button class="button-secondary" onclick="exportPDF('resultatsPhysico', 'Physico_Resultats.pdf')">💾 Enregistrer en PDF</button>
+        <button class="button-secondary" onclick="exportTXT('resultatsPhysico', 'Physico_Resultats.txt')">📄 Enregistrer en TXT</button>
+        <button class="button-secondary" onclick="window.location.href='gaz.html'">➡️ Page des Gaz Dissous</button>
+    </div>
+    <script src="physico.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</body>
+</html>

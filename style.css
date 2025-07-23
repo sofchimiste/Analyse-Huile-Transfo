@@ -1,0 +1,155 @@
+/* 🌟 Style global adapté à physico.html */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    background: linear-gradient(90deg, #003366, #0074cc);
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 24px;
+    flex-grow: 1;
+    text-transform: uppercase;
+}
+
+.logo-left, .logo-right {
+    width: 80px;
+}
+
+.container {
+    max-width: 900px;
+    margin: 30px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #003366;
+    margin-top: 20px;
+    font-size: 22px;
+    text-align: left;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.form label {
+    font-weight: bold;
+    color: #003366;
+}
+
+.form input, .form select {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+.form input:focus, .form select:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+button {
+    background: #ff6600;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 15px;
+    transition: background 0.3s ease, transform 0.2s ease;
+    text-transform: uppercase;
+}
+
+button:hover {
+    background: #e65c00;
+    transform: scale(1.05);
+}
+
+.button-secondary {
+    background: #007bff;
+    padding: 10px 18px;
+    margin: 10px 5px;
+    font-size: 14px;
+    border-radius: 5px;
+}
+
+.button-secondary:hover {
+    background: #0056b3;
+}
+
+#analyseResultats {
+    display: none;
+    margin-top: 25px;
+    background: #e9c46a;
+    padding: 20px;
+    border-radius: 10px;
+    font-size: 18px;
+}
+
+.resultats-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.resultats-table th, .resultats-table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+}
+
+.resultats-table th {
+    background-color: #007bff;
+    color: white;
+    text-transform: uppercase;
+}
+
+.resultats-table tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        width: 90%;
+        padding: 20px;
+    }
+
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .form input, .form select {
+        width: 100%;
+    }
+
+    .resultats-table th, .resultats-table td {
+        font-size: 14px;
+    }
+}

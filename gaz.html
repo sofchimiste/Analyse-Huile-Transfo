@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Analyse des Gaz Dissous</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <img src="sonatrach.png" class="logo-left" alt="Sonatrach">
+        <h1>Analyse des Gaz Dissous</h1>
+        <img src="application.png" class="logo-right" alt="App">
+    </header>
+    <div class="container">
+        <!-- Identification du transformateur -->
+        <h2>🔎 Identification du Transformateur</h2>
+        <form id="gazForm" class="form">
+            <label for="nomTransfo">Nom du Transformateur :</label>
+            <input type="text" id="nomTransfo" name="nomTransfo" required>
+
+            <label for="typeTransfo">Type de Transformateur :</label>
+            <select id="typeTransfo" name="typeTransfo" required>
+                <option value="moins_72">Tension < 72,5 kV</option>
+                <option value="72_170">Tension 72,5 kV - 170 kV</option>
+                <option value="170_400">Tension 170 kV - 400 kV</option>
+                <option value="plus_400">Tension > 400 kV</option>
+            </select>
+
+            <!-- DATES -->
+            <h2>📅 Dates</h2>
+            <label for="dateEchantillon">Date d'Échantillonnage :</label>
+            <input type="date" id="dateEchantillon" name="dateEchantillon" required>
+
+            <label for="dateAnalyse">Date d'Analyse :</label>
+            <input type="date" id="dateAnalyse" name="dateAnalyse" required>
+
+            <!-- Champs de gaz dissous -->
+            <h3>🔥 Analyses des Gaz Dissous</h3>
+            <label for="h2">Hydrogène (H₂) :</label>
+            <input type="number" id="h2" required>
+
+            <label for="co">Monoxyde de Carbone (CO) :</label>
+            <input type="number" id="co" required>
+
+            <label for="ch4">Méthane (CH₄) :</label>
+            <input type="number" id="ch4" required>
+
+            <label for="c2h6">Éthane (C₂H₆) :</label>
+            <input type="number" id="c2h6" required>
+
+            <label for="c2h4">Éthylène (C₂H₄) :</label>
+            <input type="number" id="c2h4" required>
+
+            <label for="c2h2">Acétylène (C₂H₂) :</label>
+            <input type="number" id="c2h2" required>
+
+            <button type="button" onclick="analyserGaz()">🔬 Analyser</button>
+        </form>
+
+        <div id="analyseResultatsGaz" class="resultats">
+            <h3>📊 Résultats</h3>
+            <div id="resultatsGaz"></div>
+            <div id="conclusionGaz"></div>
+        </div>
+
+        <button class="button-secondary" onclick="window.print()">🖨️ Imprimer</button>
+        <button class="button-secondary" onclick="exportPDF('resultatsGaz', 'Gaz_Resultats.pdf')">💾 Enregistrer en PDF</button>
+        <button class="button-secondary" onclick="exportTXT('resultatsGaz', 'Gaz_Resultats.txt')">📄 Enregistrer en TXT</button>
+        <button class="button-secondary" onclick="window.location.href='index.html'">⬅️ Retour à l'accueil</button>
+    </div>
+    <script src="gaz.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</body>
+</html>
